@@ -1,0 +1,33 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background: url('/images/backgroundimage.jpg')no-repeat center center fixed;
+    background-size: cover;
+}
+
+form {
+    box-shadow: 5px 5px 5px;
+}
+
+.res-input {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+label {
+    padding-right: 10px;
+}

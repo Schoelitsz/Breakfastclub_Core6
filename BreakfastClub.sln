@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreakfastClub", "BreakfastClub\BreakfastClub.csproj", "{A6B24D29-8307-4C6B-B3EB-E5C6C0A563E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6B24D29-8307-4C6B-B3EB-E5C6C0A563E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6B24D29-8307-4C6B-B3EB-E5C6C0A563E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6B24D29-8307-4C6B-B3EB-E5C6C0A563E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6B24D29-8307-4C6B-B3EB-E5C6C0A563E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49AE6C70-EF58-4F89-85E0-DCC47BB96436}
+	EndGlobalSection
+EndGlobal

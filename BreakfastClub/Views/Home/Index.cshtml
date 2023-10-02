@@ -1,0 +1,59 @@
+﻿@model Reservation
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welkom!</h1>
+    <div class="row">
+        <div class="col-6">
+            <form method="post" asp-controller="Reservation" asp-action="Create" class="form-control">
+                <div>
+                    <h2>Reserveren</h2>
+                </div>
+
+                <div class="res-input">
+                    <label for="Name">Name</label>
+                    <input for="Name" type="text" id="reservation_name" name="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+
+                </div>
+
+                <div class="res-input">
+                    <label for="ReservationSeats">Hoeveel mensen?</label>
+                    <select for="ReservationSeats" id="people_total" name="ReservationSeats">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <span asp-validation-for="ReservationSeats" class="text-danger"></span>
+                </div>
+
+                <div class="res-input">
+                    <label for="Date">Wanneer en hoelaat?</label>
+                    <input for="Date" type="date" id="reservation_date" name="Date" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Reserveren</button>
+
+            </form>
+
+            <div class="col-6">
+
+            </div>
+        </div>
+       
+    </div>
+    
+</div>
+
+                        @*make time choosable and code that it fills in the timeslot
+                            make dates in the past go unselectable
+                        *@
