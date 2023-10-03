@@ -14,5 +14,9 @@ namespace BreakfastClub.Data
         public DbSet<Reservation> Reservations { get; set; }
 
         public DbSet<MenuItem> MenuItems { get; set; }
+
+        public DbSet<Booth> Booths { get; set; }
+
+
     }
 }

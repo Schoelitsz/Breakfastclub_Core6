@@ -40,10 +40,73 @@ namespace BreakfastClub.Controllers
 
         public IActionResult List()
         {
-            return View();
+            IEnumerable<Reservation> objReservationList = _context.Reservations;
+            return View(objReservationList);
         }
+
+
+        //GET
+        public IActionResult Edit(int ID)
+        {
+            var reservation = _context.Reservations.FirstOrDefault(r => r.ID == ID);
+
+            if (reservation == null)
+            {
+                return NotFound(); 
+            }
+
+            return View(reservation);
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Reservation editedReservation)
+        {
+            if (ModelState.IsValid)
+            {
+               
+                var existingReservation = _context.Reservations.FirstOrDefault(r => r.ID == editedReservation.ID);
+
+                if (existingReservation == null)
+                {
+                    return NotFound(); 
+                }
+
+                existingReservation.Name = editedReservation.Name;
+                existingReservation.ReservationSeats = editedReservation.ReservationSeats;
+                existingReservation.Date = editedReservation.Date;
+
+                _context.SaveChanges(); 
+
+                return RedirectToAction("List"); 
+            }
+
+            return View(editedReservation); 
+        }
+
+        /*public IActionResult Edit(Reservation reservation)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Reservations.Add(reservation);
+                _context.SaveChanges();
+                return View("List");
+            }
+
+            return View();  //what happens here
+        }*/
+
+        public IActionResult Delete(int ID)
+        {
+            return RedirectToAction("List");
+        }
+
+
+        // to do: create not found page where they can return to list or go to create
+
     }
 }
 
 
-// to do: error if availableseats < obj.ReservationsSeats (for that time and date) return error
+// to do: error if availableseats < obj.ReservationsSeats for that (time and) date return error
