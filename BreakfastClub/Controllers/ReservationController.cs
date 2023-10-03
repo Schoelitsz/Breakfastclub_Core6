@@ -18,6 +18,11 @@ namespace BreakfastClub.Controllers
             return View(objReservationList);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Reservation obj)
@@ -26,22 +31,29 @@ namespace BreakfastClub.Controllers
             {
                 _context.Reservations.Add(obj);
                 _context.SaveChanges();
-                return View("Success");
+                return RedirectToAction("List");
             }
-                
-            return View("Index");
-               
+
+            return RedirectToAction("Index", "Home", obj);
+
         }
 
-        public IActionResult Success()
+        public IActionResult Success(int Id)
         {
             return View();
         }
 
         public IActionResult List()
         {
-            IEnumerable<Reservation> objReservationList = _context.Reservations;
-            return View(objReservationList);
+            var reservations = _context.Reservations.OrderBy(r => r.Date).ToList();
+
+            return View(reservations);
+        }
+
+        public IActionResult Details(int ID)
+        {
+            var ReservationDetails = _context.Reservations.Find(ID);
+            return View(ReservationDetails);
         }
 
 
@@ -85,28 +97,32 @@ namespace BreakfastClub.Controllers
             return View(editedReservation); 
         }
 
-        /*public IActionResult Edit(Reservation reservation)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Reservations.Add(reservation);
-                _context.SaveChanges();
-                return View("List");
-            }
-
-            return View();  //what happens here
-        }*/
 
         public IActionResult Delete(int ID)
         {
-            return RedirectToAction("List");
+            var reservationToDelete = _context.Reservations.Find(ID);
+
+            if (reservationToDelete != null)
+            {
+                
+                _context.Reservations.Remove(reservationToDelete);
+                _context.SaveChanges();
+
+                
+                return RedirectToAction("List");
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
 
-        // to do: create not found page where they can return to list or go to create
+        // to do: create proper not found userflow
 
     }
 }
 
 
 // to do: error if availableseats < obj.ReservationsSeats for that (time and) date return error
+// to do: confirmation bubble for deleting

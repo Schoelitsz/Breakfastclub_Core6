@@ -13,7 +13,7 @@ namespace BreakfastClub.Models
 
         public bool isAvailable { get; set; } //is true based on Date
 
-        public List<Reservation> BoothReservations { get; set; }
+       /* public List<Reservation> BoothReservations { get; set; }*/
 
     }
 }

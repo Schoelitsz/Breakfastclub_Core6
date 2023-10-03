@@ -1,0 +1,30 @@
+﻿@model BreakfastClub.Models.Reservation
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+    <div class="success-table">
+        <h1>Huzzah, a reservation</h1>
+
+        <h3>Your details</h3>
+        <ul>
+            <li>
+                <p>Name:</p>
+                <p>@Html.DisplayFor(model => model.Name)</p>
+            </li>
+            <li>
+                <p>Date and Time:</p>
+                <p>@Html.DisplayFor(model => model.Date)</p>
+            </li>
+            <li>
+                <p>Size of your party:</p>
+                <p>@Html.DisplayFor(model => model.ReservationSeats)</p>
+            </li>
+        </ul>
+    </div>
+
+
+

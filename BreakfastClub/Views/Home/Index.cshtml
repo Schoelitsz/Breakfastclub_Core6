@@ -8,21 +8,25 @@
     <h1 class="display-4">Welkom!</h1>
     <div class="row">
         <div class="col-6">
-            <form method="post" asp-controller="Reservation" asp-action="Create" class="form-control">
+            <form method="post" asp-controller="Home" asp-action="Create" class="form-control">
+                @Html.AntiForgeryToken()
                 <div>
                     <h2>Reserveren</h2>
                 </div>
+
+                @Html.ValidationSummary()
 
                 <div class="res-input">
                     <label for="Name">Name</label>
                     <input for="Name" type="text" id="reservation_name" name="Name" />
                     <span asp-validation-for="Name" class="text-danger"></span>
 
+
                 </div>
 
                 <div class="res-input">
                     <label for="ReservationSeats">Hoeveel mensen?</label>
-                    <select for="ReservationSeats" id="people_total" name="ReservationSeats">
+                    <select for="ReservationSeats" id="reservation_seats" name="ReservationSeats">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

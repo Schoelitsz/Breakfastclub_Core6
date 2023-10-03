@@ -4,6 +4,7 @@ using BreakfastClub.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BreakfastClub.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231003153232_AddedAttributesToReservation")]
+    partial class AddedAttributesToReservation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,21 @@ namespace BreakfastClub.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("BoothReservation", b =>
+                {
+                    b.Property<int>("BoothReservationsID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BoothsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BoothReservationsID", "BoothsId");
+
+                    b.HasIndex("BoothsId");
+
+                    b.ToTable("BoothReservation");
+                });
 
             modelBuilder.Entity("BreakfastClub.Models.Booth", b =>
                 {
@@ -295,6 +313,21 @@ namespace BreakfastClub.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("BoothReservation", b =>
+                {
+                    b.HasOne("BreakfastClub.Models.Reservation", null)
+                        .WithMany()
+                        .HasForeignKey("BoothReservationsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BreakfastClub.Models.Booth", null)
+                        .WithMany()
+                        .HasForeignKey("BoothsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -4,9 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create a new Reservation for a customer</h1>
 
-<h4>Reservation</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -18,7 +17,7 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ReservationSeats" class="control-label"></label>
+                <label asp-for="ReservationSeats" class="control-label">Party size</label>
                 <input asp-for="ReservationSeats" class="form-control" />
                 <span asp-validation-for="ReservationSeats" class="text-danger"></span>
             </div>

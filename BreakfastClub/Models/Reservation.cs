@@ -15,25 +15,32 @@ namespace BreakfastClub.Models
 
         [Required]
         [FutureDate]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime Date {  get; set; }
 
-        public List<Booth>  Booths { get; set; }
+        /*public List<Booth>  Booths { get; set; }*/
 
 
         /*public TimeOnly EndTime { get; set; }*/
 
         public class FutureDateAttribute : ValidationAttribute
         {
-            public static ValidationResult ValidateDateInFuture(DateTime date, ValidationContext context)
+            protected override ValidationResult IsValid(object value, ValidationContext validationContext)
             {
-                if (date > DateTime.Now)
+                if (value is DateTime date)
                 {
-                    return ValidationResult.Success;
+                    if (date > DateTime.Now)
+                    {
+                        return ValidationResult.Success;
+                    }
+                    else
+                    {
+                        return new ValidationResult("Datum moet in de toekomst zijn.");
+                    }
                 }
-                else
-                {
-                    return new ValidationResult("Datum moet in de toekomst zijn.");
-                }
+
+                return new ValidationResult("Ongeldige datumwaarde.");
             }
         }
     }

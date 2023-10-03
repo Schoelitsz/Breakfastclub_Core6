@@ -9,10 +9,10 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <h1>List</h1>
+    <h1>List of Reservations for Employees to manage</h1>
 
     <p>
-        <a asp-asp-controller="Reservation" asp-action="Create">Create New Reservation</a>
+        <a asp-asp-controller="Reservation" asp-action="Create">Create a New Reservation</a>
     </p>
     <table class="table">
         <thead>
@@ -43,9 +43,9 @@
                         @Html.DisplayFor(modelItem => item.Date)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        <a asp-controller="Reservation" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-controller="Reservation" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-controller="Reservation" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
                     </td>
                 </tr>
             }
@@ -55,6 +55,6 @@
 }
 else
 {
-    <h1>Sorry, you cannot access this page, please <a href="">Login</a></h1>
+    <h1>Sorry, you cannot access this page, please <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a></h1>
 }
 

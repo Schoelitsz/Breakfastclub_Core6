@@ -17,6 +17,7 @@ body {
     margin-bottom: 60px;
     background: url('/images/backgroundimage.jpg')no-repeat center center fixed;
     background-size: cover;
+    color: white !important;
 }
 
 form {
@@ -30,4 +31,10 @@ form {
 }
 label {
     padding-right: 10px;
+}
+
+.success-table {
+    border: solid black 2px;
+    box-shadow: 3px 3px 3px;
+    background-color: navajowhite;
 }
