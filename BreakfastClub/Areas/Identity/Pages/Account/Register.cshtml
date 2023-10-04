@@ -7,9 +7,9 @@
 <h1>@ViewData["Title"]</h1>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="register col-md-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
+            <h4>To access the employee menu and make changes to the menu, or see reservations, you must make an account.</h4>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-floating">
@@ -30,7 +30,7 @@
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>
-    <div class="col-md-6 col-md-offset-2">
+    @* <div class="col-md-6 col-md-offset-2">
         <section>
             <h3>Use another service to register.</h3>
             <hr />
@@ -58,7 +58,7 @@
                     </form>
                 }
             }
-        </section>
+        </section> *@
     </div>
 </div>
 

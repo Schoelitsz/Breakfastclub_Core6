@@ -11,10 +11,7 @@
 {
     <h1>List of Reservations for Employees to manage</h1>
 
-    <p>
-        <a asp-asp-controller="Reservation" asp-action="Create">Create a New Reservation</a>
-    </p>
-    <table class="table">
+    <table class="food-table">
         <thead>
             <tr>
                 <th>
@@ -51,7 +48,9 @@
             }
         </tbody>
     </table>
-    
+    <p>
+        <a class="create-food" asp-asp-controller="Reservation" asp-action="Create">Create a New Reservation</a>
+    </p>
 }
 else
 {

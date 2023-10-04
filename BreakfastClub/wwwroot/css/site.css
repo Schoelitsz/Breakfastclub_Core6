@@ -8,6 +8,10 @@ html {
   }
 }
 
+header{
+    background-color: antiquewhite;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -21,7 +25,8 @@ body {
 }
 
 form {
-    box-shadow: 5px 5px 5px;
+    padding-bottom: 10px;
+    border-radius:25px;
 }
 
 .res-input {
@@ -35,6 +40,112 @@ label {
 
 .success-table {
     border: solid black 2px;
-    box-shadow: 3px 3px 3px;
+    /*box-shadow: solid black 3px 3px 3px;*/
     background-color: navajowhite;
+    color: black;
+}
+
+.success-table h1{
+    padding: 10px;
+}
+
+.success-table h3 {
+    padding: 10px;
+}
+
+.success-table ul {
+    padding: 10px;
+}
+
+.login-container {
+    background-color: antiquewhite;
+    display: flex;
+    box-shadow: 5px 5px 5px;
+    color: black;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+.register {
+    background-color: antiquewhite;
+    color: black;
+    box-shadow: 5px 5px 5px;
+    border-radius: 25px;
+}
+
+.form-floating {
+    padding-bottom: 10px;
+}
+
+.create-food {
+    color: black;
+}
+
+
+.food-table {
+    background-color: antiquewhite;
+    border-radius: 25px;
+    color: black;
+}
+
+.food-table td,
+.food-table th {
+    padding: 10px; /* Adjust this value as needed */
+}
+
+.booth-text {
+    border-radius: 25px;
+    border: solid black 5px;
+    background-color: antiquewhite;
+    color: black;
+    display: block;
+    
+}
+
+.booth-text p {
+    padding: 10px;
+    padding-left: 50px;
+}
+
+.croissant {
+    max-width: 45px;
+    max-height: 45px;
+
+}
+
+.reserve-form {
+    background-color: antiquewhite;
+    border-radius: 25px;
+    color: black;
+    border: solid black 3px;
+    
+}
+
+.employee-list {
+    background-color: antiquewhite;
+    border-radius: 25px;
+    color: black;
+    border: solid black 3px;
+}
+
+.employee-list a {
+    border-radius:23px 23px 0px 0px !important;
+}
+
+.menu {
+    background-color: antiquewhite;
+    border-radius: 25px;
+    color: black;
+    border: solid black 3px;
+}
+
+.menu h2 {
+    padding: 10px;
+}
+.menu table {
+    padding: 10px;
+}
+
+footer {
+    background-color: antiquewhite;
 }
